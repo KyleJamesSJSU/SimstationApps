@@ -15,9 +15,8 @@ public class Bird extends Agent {
 
     @Override
     public void update() {
-        FlockingSimulation simulation = (FlockingSimulation) world;
         // bird copies properties of neighbor if it can find one
-        Bird neighbor = (Bird) simulation.getNeighbor(this, 10);
+        Bird neighbor = (Bird) world.getNeighbor(this, 10);
         if(neighbor != null)
         {
             this.heading = neighbor.heading;
