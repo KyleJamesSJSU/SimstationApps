@@ -13,6 +13,10 @@ public abstract class Strategy {
         this.myPrisoner = p;
     }
 
+    public StrategyType getType() {
+        return type;
+    }
+
     public void setMyPrisoner(Prisoner p) {
         this.myPrisoner = p;
     }
@@ -71,6 +75,6 @@ class Tit4Tat extends Strategy {
     }
     public boolean cooperate() {
         // cheat if last opponent cheated
-        return myPrisoner.isPartnerCheated();
+        return !myPrisoner.isPartnerCheated();
     }
 }

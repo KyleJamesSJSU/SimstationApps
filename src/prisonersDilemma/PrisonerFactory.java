@@ -34,9 +34,11 @@ class PrisonerStatsCommand extends StatsCommand {
 
     @Override
     protected String[] getStatsMessage() {
-        // get specific stats from model
-        Simulation simulation = (Simulation)model;
-        // create string for inform
-        return new String[]{"TODO write stats"};
+        String[] old = super.getStatsMessage();
+
+        PrisonerSimulation ps = (PrisonerSimulation)model;
+        String[] msg = ps.getAverageStats();
+
+        return new String[]{old[0],old[1],msg[0],msg[1],msg[2],msg[3]};
     }
 }
