@@ -43,4 +43,6 @@ public class PrisonerSimulation extends Simulation {
         panel.display();
     }
 
+    // TODO write averaging logic
+
 }

@@ -31,7 +31,7 @@ public class Prisoner extends Agent {
 
     // methods from prof's diagram
     public void update() {
-        // TODO write update
+        // TODO write game logic
 
     }
 
