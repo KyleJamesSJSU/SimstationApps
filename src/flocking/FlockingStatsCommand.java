@@ -8,7 +8,9 @@ public class FlockingStatsCommand extends StatsCommand {
     public FlockingStatsCommand(Model model) {
         super(model);
     }
-    private String[] getStatsMessage() {
+
+    @Override
+    protected String[] getStatsMessage() {
         // get specific stats from model
         Simulation simulation = (Simulation) model;
         String[] result = new String[Bird.MAX_SPEED];
@@ -25,9 +27,5 @@ public class FlockingStatsCommand extends StatsCommand {
         }
         // create string for inform
         return result;
-    }
-    public void execute() throws Exception {
-        // send message
-        Utilities.inform(getStatsMessage());
     }
 }
