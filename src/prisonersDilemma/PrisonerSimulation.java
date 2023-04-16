@@ -8,7 +8,7 @@ import java.util.*;
 public class PrisonerSimulation extends Simulation {
 
     private final static int PRISONERS_PER_STRATEGY = 10; // amount of prisoners made per strategy
-    public final static int STEP_VARIANCE = 10; // distance from 1 to X inclusive that prisoners will step between
+    public final static int STEP_VARIANCE = 5; // distance from 1 to X inclusive that prisoners will step between
     public final static int SEARCH_RADIUS = 10; // distance for prisoners to search for partners to play with
 
     public void populate() {
