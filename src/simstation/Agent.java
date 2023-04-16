@@ -28,6 +28,7 @@ public abstract class Agent implements Serializable, Runnable {
         this.world = world;
     }
 
+
     public void run(){
         myThread = Thread.currentThread();
         onStart();

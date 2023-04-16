@@ -5,6 +5,7 @@ import mvc.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
+import java.util.*;
 
 public class SimulationPanel extends AppPanel {
 
@@ -27,15 +28,24 @@ public class SimulationPanel extends AppPanel {
         Simulation simulation = (Simulation) model;
 
         if ((cmmd == "Save" || cmmd == "SaveAs")
-                && (simulation.isRunning() || simulation.isSuspended())) {
-            Utilities.error("Cannot save while simulation is active. Please stop it first.");
+                && (simulation.isRunning() && !simulation.isSuspended())) {
+            Utilities.error("Cannot save active simulation that isn't suspended. Please suspend it first.");
             return;
         }
         super.actionPerformed(ae);
     }
 
+    @Override
     public void propertyChange(PropertyChangeEvent evt) {
         super.propertyChange(evt);
+        if(evt.getPropertyName() == "New"
+                || evt.getPropertyName() == "Open") {
+            // start all loaded agents to initialize their threads
+            Iterator<Agent> ai = ((Simulation)evt.getNewValue()).agentIterator();
+            while (ai.hasNext()) {
+                ai.next().start();
+            }
+        }
     }
 
     // no main because we don't run the basic framework

@@ -2,11 +2,13 @@ package prisonersDilemma;
 
 import simstation.*;
 import mvc.*;
+import java.io.Serializable;
+
 public class Prisoner extends Agent {
 
     // variables
     private Strategy strategy;
-    private int fitness;
+    private int fitness; // not being saved?
     private boolean partnerCheated;
 
     // constructors
