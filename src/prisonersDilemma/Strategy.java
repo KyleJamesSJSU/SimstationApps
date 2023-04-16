@@ -3,7 +3,9 @@ package prisonersDilemma;
 import simstation.*;
 import mvc.*;
 
-public abstract class Strategy {
+import java.io.Serializable;
+
+public abstract class Strategy implements Serializable {
 
     protected Prisoner myPrisoner;
     public static final int STRATEGY_COUNT = 4;
