@@ -34,12 +34,6 @@ public class Prisoner extends Agent {
         this.strategy = strategy;
     }
 
-    @Override
-    public void onStart() {
-        this.fitness = 0;
-        this.partnerCheated = false;
-    }
-
     // methods from prof's diagram
     public void update() {
         // randomly walk around the simulation
